@@ -3,4 +3,5 @@
 # Just copy the contents to ~/.vim with the following commands
 #
 mkdir -p ~/.vim
-cp -rf . ~/.vim/
+cp -r ./python ~/.vim/
+cp -r ./plugin ~/.vim/
