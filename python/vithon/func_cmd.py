@@ -277,7 +277,7 @@ def _setupVithonCmd(cmd):
         if type(cmd.complete) == str:
             arglist.append('-complete=%s' % cmd.complete)
         elif type(cmd.complete) == _vithonfunc:
-            arglist.append('-complete=custom,vithon:%s' % cmd.complete.name)
+            arglist.append('-complete=customlist,vithon:%s' % cmd.complete.name)
         else:
             assert False, 'Unknown complete type'
     arglist.append(cmd.name)
