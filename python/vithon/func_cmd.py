@@ -175,18 +175,14 @@ class _vithonfunc_co(object):
             
 vithonfuncs = _vithonfunc_co()
 
-def vim_function(func):
-    '''
-    @brief decorator converting a python function to a VCF with it's own
-           function name
-    '''
-    return vithonfuncs.new(func.func_name, func)
-
-def vim_function_(name):
+def vim_function_(obj):
     '''
     @brief decorator converting a python function to a VCF
     '''
-    return lambda func: vithonfuncs.new(name, func)
+    if type(obj) == str:
+        return lambda func: vithonfuncs.new(obj, func)
+    elif callable(obj):
+        return vithonfuncs.new(obj.func_name, obj)
 
 
 ##
@@ -336,7 +332,7 @@ class _vithoncmd_co(object):
 
 vithoncmds = _vithoncmd_co()
 
-def vim_command(name,
+def vim_command_(name,
                 nargs = None,
                 complete = None):
     return lambda func: vithoncmds.new(name, func, nargs, complete)

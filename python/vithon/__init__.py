@@ -3,7 +3,9 @@ from func_cmd import (
 			vithonfuncs,
 			vimcmds,
 			vithoncmds,
-			vim_function,
 			vim_function_, 
-			vim_command)
+			vim_command_)
+
+from ptcl import protocol_
+from buf_file import buffers
 
